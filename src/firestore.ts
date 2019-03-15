@@ -103,6 +103,171 @@ export const insertTechnologies = () => {
 			name: "TensorFlow",
 			image:
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/TensorFlowLogo.svg/2000px-TensorFlowLogo.svg.png"
+		},
+		{
+			name: "AngularJS",
+			image: "https://cdn-images-1.medium.com/max/1200/1*GmMtKznzJ1dS8sSzxzR3ow.png"
+		},
+		{
+			name: "VueJS",
+			image: "https://vuejs.org/images/logo.png"
+		},
+		{
+			name: "ReactJS",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+		},
+		{
+			name: "Go",
+			image: "https://cdn-images-1.medium.com/max/1200/1*yh90bW8jL4f8pOTZTvbzqw.png"
+		},
+		{
+			name: "Docker",
+			image: "https://www.docker.com/sites/default/files/social/docker_facebook_share.png"
+		},
+		{
+			name: "AWS",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png"
+		},
+		{
+			name: "Azure",
+			image: "https://ktconnections.com/images/easyblog_articles/658/microsoft-azure-500x500.png"
+		},
+		{
+			name: "YAML",
+			image: "https://cdn.ttgtmedia.com/rms/onlineImages/itops-yaml_code_7_mobile.png"
+		},
+		{
+			name: "Heroku",
+			image: "https://cdn-images-1.medium.com/max/1600/1*fIjRtO5P8zc3pjs0E5hYkw.png"
+		},
+		{
+			name: "Ansible",
+			image: "https://www.ansible.com/hubfs/Ansible-Mark-Large-RGB-Black.png"
+		},
+		{
+			name: "Github",
+			image: "https://github.githubassets.com/images/modules/open_graph/github-octocat.png"
+		},
+		{
+			name: "Linux",
+			image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png"
+		},
+		{
+			name: "Windows",
+			image: "https://images.techhive.com/images/article/2016/03/0425-primary-100653509-large.jpg"
+		},
+		{
+			name: "MacOS",
+			image: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201606271147"
+		},
+		{
+			name: "MySQL",
+			image: "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png"
+		},
+		{
+			name: "Android",
+			image: "https://www.android.com/static/2016/img/share/andy-lg.png"
+		},
+		{
+			name: "Vagrant",
+			image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vagrant.png"
+		},
+		{
+			name: "OpenStack",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/OpenStack%C2%AE_Logo_2016.svg/1200px-OpenStack%C2%AE_Logo_2016.svg.png"
+		},
+		{
+			name: "Postgres",
+			image:
+				"https://zdnet4.cbsistatic.com/hub/i/r/2018/04/19/092cbf81-acac-4f3a-91a1-5a26abc1721f/resize/370xauto/ce84e38cb1c1a7c5a2c9e4c337e108ba/postgresql-logo.png"
+		},
+		{
+			name: "CSS",
+			image: "https://sabe.io/classes/css/hero.png"
+		},
+		{
+			name: "HTML",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png"
+		},
+		{
+			name: "COBOL",
+			image: "https://www.oriongovernance.com/wp-content/uploads/2018/08/Artboard-32.png"
+		},
+		{
+			name: "Basic",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/AtariBasic.png/300px-AtariBasic.png"
+		},
+		{
+			name: "Vim",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1200px-Vimlogo.svg.png"
+		},
+		{
+			name: "Emacs",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/1024px-EmacsIcon.svg.png"
+		},
+		{
+			name: "Intellij",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/IntelliJ_IDEA_Logo.svg/2000px-IntelliJ_IDEA_Logo.svg.png"
+		},
+		{
+			name: "Commodore",
+			image: "https://seeklogo.com/images/C/Commodore-logo-62DE162DF0-seeklogo.com.png"
+		},
+		{
+			name: "Amiga",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Amiga-Logo-1985.svg/2000px-Amiga-Logo-1985.svg.png"
+		},
+		{
+			name: "Intel",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/2000px-Intel-logo.svg.png"
+		},
+		{
+			name: "AMD",
+			image: "https://pbs.twimg.com/profile_images/844264219549745152/ubfu0dAD_400x400.jpg"
+		},
+		{
+			name: "JSON",
+			image: "https://blog.lansa.com/wp-content/uploads/json-featured.jpg"
+		},
+		{
+			name: "XML",
+			image: "https://d7uddx54veb4a.cloudfront.net/wp-content/uploads/2016/10/logo-xml.png"
+		},
+		{
+			name: "REST",
+			image: "http://www.softwaresamurai.org/wp-content/uploads/2017/12/RESTfil-API.png"
+		},
+		{
+			name: "SOAP",
+			image: "https://www.itu.dk/acmsac2013-soap/images/soap_logo.png"
+		},
+		{
+			name: "GraphQL",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/2000px-GraphQL_Logo.svg.png"
+		},
+		{
+			name: "Wolkenkit",
+			image:
+				"https://heise.cloudimg.io/width/610/q75.png-lossy-75.webp-lossy-75.foil1/_www-heise-de_/imgs/18/2/5/5/1/3/0/5/logo-0172bfccbc586251.png"
+		},
+		{
+			name: "MeteorJS",
+			image: "https://d14jjfgstdxsoz.cloudfront.net/assets/og-image-logo.png"
+		},
+		{
+			name: "Firebase",
+			image: "https://firebase.google.com/images/brand-guidelines/logo-standard.png"
 		}
 	];
 	techs.forEach(t => {

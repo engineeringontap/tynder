@@ -22,6 +22,7 @@ export const Stats: React.SFC<IProps> = () => {
 
 	return (
 		<div className={styles.root}>
+			<h1>https://tynder.clinqlabs.com</h1>
 			<BarChart
 				width={500}
 				height={300}

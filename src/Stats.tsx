@@ -20,8 +20,6 @@ export const Stats: React.SFC<IProps> = () => {
 
 	const data = Object.keys(stats).map(key => stats[key]);
 
-	console.log("stats", stats);
-
 	return (
 		<div className={styles.root}>
 			<BarChart

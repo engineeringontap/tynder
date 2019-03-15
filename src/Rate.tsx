@@ -37,12 +37,7 @@ export const Rate: React.SFC<IProps> = ({ userId }) => {
 	const technologies = useTechnologies();
 	const ratings = useRatings(userId);
 
-	console.log("ratings", ratings);
-	console.log("technologies", technologies);
-
 	const unratedTechs = technologies.filter(t => !ratings.includes(t.id));
-
-	console.log("unratedTechs", unratedTechs);
 
 	const handleLike = (t: Technology) => {
 		return () => {

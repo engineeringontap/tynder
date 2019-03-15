@@ -10,7 +10,9 @@ const Control: React.SFC<{ icon: string; onClick: () => void }> = ({ icon, onCli
 	</div>
 );
 
-const EmptyState: React.SFC = () => <div className={styles.emptyState}>no techs to rate</div>;
+const EmptyState: React.SFC = () => (
+	<div className={styles.emptyState}>Done and done! No go drink some beer!</div>
+);
 
 const SwipeCard: React.SFC<{ t: Technology }> = ({ t: { name, image, id } }) => (
 	<div

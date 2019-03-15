@@ -15,6 +15,7 @@
   "react-dom": "^16.8.2",
   "react-scripts": "2.1.5",
   "react-swipe": "^6.0.4",
+  "react-swipeable-views": "^0.13.1",
   "tslint": "^5.12.1",
   "tslint-config-prettier": "^1.18.0",
   "tslint-eslint-rules": "^5.4.0",

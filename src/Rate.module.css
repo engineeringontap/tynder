@@ -58,6 +58,11 @@
 	width: 40px;
 }
 
+.controlIcon:active,
+.controlIcon:hover {
+	background-color: #e0e0e0;
+}
+
 .cardOverlay {
 	width: 100%;
 	height: 100px;

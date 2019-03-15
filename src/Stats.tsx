@@ -28,10 +28,9 @@ export const Stats: React.SFC<IProps> = () => {
 		})
 		.slice(0, 20);
 
-	console.log("stats", stats);
-
 	return (
 		<div className={styles.root}>
+			<h1>https://tynder.clinqlabs.com</h1>
 			<BarChart
 				width={1900}
 				height={800}

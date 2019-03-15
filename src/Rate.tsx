@@ -32,7 +32,7 @@ interface IProps {
 }
 
 export const Rate: React.SFC<IProps> = ({ userId }) => {
-	const { technologies } = useTechnologies();
+	const technologies = useTechnologies();
 	const ratings = useRatings(userId);
 
 	console.log("ratings", ratings);

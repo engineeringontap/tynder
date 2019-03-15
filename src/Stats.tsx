@@ -1,24 +1,26 @@
 import React from "react";
 import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
-import { useTechnologies } from "./firestore";
+import { useTechnologies, useStats } from "./firestore";
 import styles from "./Stats.module.css";
 
-const data = [
-	{
-		name: "React",
-		likes: 10,
-		dislikes: 5
-	}
-];
+// const data = [
+// 	{
+// 		name: "React",
+// 		likes: 10,
+// 		dislikes: 5
+// 	}
+// ];
 
 interface IProps {
 	path: string;
 }
 
 export const Stats: React.SFC<IProps> = () => {
-	const { technologies } = useTechnologies();
+	const stats = useStats();
 
-	console.log("technologies", technologies);
+	const data = Object.keys(stats).map(key => stats[key]);
+
+	console.log("stats", stats);
 
 	return (
 		<div className={styles.root}>

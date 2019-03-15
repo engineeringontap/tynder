@@ -1,4 +1,4 @@
-import firebase, { User } from "firebase";
+import firebase from "firebase";
 import { firestore } from "firebase/app";
 import "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -23,6 +23,16 @@ export interface Technology {
 export interface Rating {
 	id: string;
 }
+export interface Stat {
+	id: string;
+	name: string;
+	likes: number;
+	dislikes: number;
+}
+export interface Stats {
+	[id: string]: Stat;
+}
+export type Unsubscribe = () => void;
 
 firestore()
 	.enablePersistence()
@@ -123,7 +133,7 @@ export const useTechnologies = () => {
 			});
 	}, []);
 
-	return { technologies };
+	return technologies;
 };
 
 export const useRatings = userId => {
@@ -143,4 +153,80 @@ export const useRatings = userId => {
 	}, []);
 
 	return ratings;
+};
+
+export const useStats = () => {
+	const [stats, setStats] = useState<Stats>({});
+	let cache = {};
+
+	const update = (stat: any) => {
+		setStats({
+			...cache,
+			[stat.id]: {
+				...cache[stat.id],
+				...stat
+			}
+		});
+	};
+
+	useEffect(() => {
+		const unsubscribers: Unsubscribe[] = [];
+
+		const root = firestore()
+			.collection("technologies")
+			.onSnapshot(({ docs }) => {
+				docs.forEach(doc => {
+					const id = doc.id;
+					const { name } = doc.data();
+
+					const child = firestore()
+						.collection(`technologies/${id}/likes`)
+						.onSnapshot(({ docs: docs2 }) => {
+							const likes = docs2.length;
+							const stat = {
+								id,
+								name,
+								likes
+							};
+							cache = {
+								...cache,
+								[stat.id]: {
+									...cache[id],
+									...stat
+								}
+							};
+							update(stat);
+						});
+
+					unsubscribers.push(child);
+
+					const child2 = firestore()
+						.collection(`technologies/${id}/dislikes`)
+						.onSnapshot(({ docs: docs2 }) => {
+							const dislikes = docs2.length;
+							const stat = {
+								id,
+								name,
+								dislikes
+							};
+							cache = {
+								...cache,
+								[stat.id]: {
+									...cache[id],
+									...stat
+								}
+							};
+							update(stat);
+						});
+
+					unsubscribers.push(child2);
+				});
+			});
+
+		unsubscribers.push(root);
+
+		return () => unsubscribers.forEach(unsubscriber => unsubscriber());
+	}, []);
+
+	return stats;
 };

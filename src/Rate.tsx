@@ -1,6 +1,7 @@
 import React from "react";
 import dislikeImage from "./assets/cross.png";
 import likeImage from "./assets/heart.png";
+import beerImage from "./assets/beer.svg";
 import { dislike, like, Technology, useRatings, useTechnologies } from "./firestore";
 import styles from "./Rate.module.css";
 
@@ -11,7 +12,10 @@ const Control: React.SFC<{ icon: string; onClick: () => void }> = ({ icon, onCli
 );
 
 const EmptyState: React.SFC = () => (
-	<div className={styles.emptyState}>Done and done! No go drink some beer!</div>
+	<div className={styles.emptyState}>
+		<h2>Done and done! No go drink some beer!</h2>
+		<img src={beerImage} className={styles.beerLogo} />
+	</div>
 );
 
 const SwipeCard: React.SFC<{ t: Technology }> = ({ t: { name, image, id } }) => (

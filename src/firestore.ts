@@ -268,6 +268,36 @@ export const insertTechnologies = () => {
 		{
 			name: "Firebase",
 			image: "https://firebase.google.com/images/brand-guidelines/logo-standard.png"
+		},
+		{
+			name: "Sublime",
+			image: "https://www.seekpng.com/png/detail/242-2425311_sublime-text-editor-logo.png"
+		},
+		{
+			name: "Git",
+			image: "https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png"
+		},
+		{
+			name: "SVN",
+			image:
+				"https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Subversion_Logo.svg/1200px-Subversion_Logo.svg.png"
+		},
+		{
+			name: "GitLab",
+			image: "https://about.gitlab.com/images/logos/wm_web.svg"
+		},
+		{
+			name: "Bitbucket",
+			image: "https://www.ibm.com/cloud/garage/images/tools_icons/bitbucket.png"
+		},
+		{
+			name: "Bash",
+			image:
+				"https://camo.githubusercontent.com/7c9b27101ba491969d016f2f2427c3e066f7bd0b/68747470733a2f2f63646e2e7261776769742e636f6d2f6f64622f6f6666696369616c2d626173682d6c6f676f2f6d61737465722f6173736574732f4c6f676f732f4964656e746974792f504e472f424153485f6c6f676f2d7472616e73706172656e742d62672d636f6c6f722e706e67"
+		},
+		{
+			name: "CMD",
+			image: "https://ih1.redbubble.net/image.439808265.0172/flat,800x800,075,f.u2.jpg"
 		}
 	];
 	techs.forEach(t => {

@@ -18,15 +18,23 @@ interface IProps {
 export const Stats: React.SFC<IProps> = () => {
 	const stats = useStats();
 
-	const data = Object.keys(stats).map(key => stats[key]);
+	const data = Object.keys(stats)
+		.map(key => stats[key])
+		.sort((a, b) => {
+			const aLikes = a.likes - a.dislikes;
+			const bLikes = b.likes - b.dislikes;
+
+			return bLikes - aLikes;
+		})
+		.slice(0, 20);
 
 	console.log("stats", stats);
 
 	return (
 		<div className={styles.root}>
 			<BarChart
-				width={500}
-				height={300}
+				width={1900}
+				height={800}
 				data={data}
 				margin={{
 					top: 5,

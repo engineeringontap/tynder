@@ -50,7 +50,6 @@ export const useTechnologies = () => {
 		return firestore()
 			.collection("technologies")
 			.onSnapshot(({ docs }) => {
-				console.log(docs);
 				setTechnologies(
 					docs.map<Technology>(doc => {
 						const { name, link, image } = doc.data();

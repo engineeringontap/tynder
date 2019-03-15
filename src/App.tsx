@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./App.module.css";
 import dislike from "./assets/cross.png";
 import like from "./assets/heart.png";
 import { useTechnologies, Technology } from "./firestore";
 import SwipeableViews from "react-swipeable-views";
 
-const Control: React.SFC<{ icon: string }> = ({ icon }) => (
-	<div className={styles.controlItem}>
+const Control: React.SFC<{ icon: string, onClick: () => void }> = ({ icon, onClick }) => (
+	<div className={styles.controlItem} onClick={onClick} >
 		<img src={icon} alt="" className={styles.controlIcon} />
 	</div>
 );
@@ -30,6 +30,7 @@ const swipeStyle = {
 		flex: 1,
 		width: "100%",
 		display: "flex",
+		borderRadius: 5,
 		boxShadow: "0 16px 40px rgba(0,0,0,0.12)"
 	},
 	container: {
@@ -49,12 +50,27 @@ const handleIndexChange = (index, indexLatest, meta) => {
 		console.log("dislike!")
 	} else {
 		console.log("like!");
-
 	}
 }
 
+
+
 export const App: React.SFC = () => {
 	const { technologies } = useTechnologies();
+	const [slideIndex, setSlideIndex] = useState(0);
+
+	const handleLike = () => {
+		if(slideIndex < technologies.length - 1){
+			setSlideIndex(slideIndex + 1)
+		}
+	}
+
+	const handleDislike = () => {
+		if(slideIndex > 0){
+			setSlideIndex(slideIndex - 1)
+		}
+	}
+
 	return (
 		<div className={styles.root}>
 			<header className={styles.header}>
@@ -69,7 +85,10 @@ export const App: React.SFC = () => {
 					slideStyle={swipeStyle.child}
 					resistance={true}
 					enableMouseEvents={true}
-					hysteresis={0.9}
+					hysteresis={0.8}
+					index={slideIndex}
+					disabled={true}
+					threshold={100000}
 				>
 					{technologies.map(t => (
 						<SwipeCard key={t.id} t={t} />
@@ -77,8 +96,8 @@ export const App: React.SFC = () => {
 				</SwipeableViews>
 			</div>
 			<div className={styles.controls}>
-				<Control icon={dislike} />
-				<Control icon={like} />
+				<Control icon={dislike} onClick={handleDislike} />
+				<Control icon={like} onClick={handleLike}/>
 			</div>
 		</div>
 	);

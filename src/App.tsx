@@ -68,6 +68,7 @@ export const App: React.SFC = () => {
 					containerStyle={swipeStyle.container}
 					slideStyle={swipeStyle.child}
 					resistance={true}
+					enableMouseEvents={true}
 					hysteresis={0.9}
 				>
 					{technologies.map(t => (

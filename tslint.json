@@ -1,0 +1,14 @@
+{
+	"extends": ["tslint:latest", "tslint-react", "tslint-eslint-rules", "tslint-config-prettier"],
+	"linterOptions": {
+		"exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+	},
+	"rules": {
+		"member-access": true,
+		"object-literal-sort-keys": false,
+		"ordered-imports": false,
+		"interface-name": false,
+		"no-console": false,
+		"no-submodule-imports": false
+	}
+}

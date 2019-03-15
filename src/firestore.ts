@@ -20,6 +20,9 @@ export interface Technology {
 	link: string;
 	image: string;
 }
+export interface Rating {
+	id: string;
+}
 
 firestore()
 	.enablePersistence()
@@ -36,12 +39,68 @@ firestore()
 		}
 	});
 
-export const sendLove = (from: User, to: User) =>
+export const like = (techId, userId) => {
 	firestore()
-		.collection(`love/${to.uid}/love`)
+		.collection(`technologies/${techId}/likes`)
 		.add({
-			from
+			userId
 		});
+
+	setRating(techId, userId);
+};
+
+const setRating = (techId, userId) => {
+	firestore()
+		.collection(`users/${userId}/ratings`)
+		.add({
+			techId
+		});
+};
+
+export const dislike = (techId, userId) => {
+	firestore()
+		.collection(`technologies/${techId}/dislikes`)
+		.add({
+			userId
+		});
+
+	setRating(techId, userId);
+};
+
+export const insertTechnologies = () => {
+	const techs = [
+		{
+			name: "NodeJS",
+			image:
+				"https://upload.wikimedia.org/wikipedia/de/thumb/e/e1/Java-Logo.svg/1200px-Java-Logo.svg.png"
+		},
+		{
+			name: "Kubernetes",
+			image:
+				"https://i1.wp.com/softwareengineeringdaily.com/wp-content/uploads/2019/01/Kubernetes_New.png?resize=730%2C389&ssl=1"
+		},
+		{
+			name: "Java",
+			image:
+				"https://upload.wikimedia.org/wikipedia/de/thumb/e/e1/Java-Logo.svg/1200px-Java-Logo.svg.png"
+		},
+		{
+			name: "Python",
+			image:
+				"https://static.makeuseof.com/wp-content/uploads/2018/02/control-arduino-python-670x335.jpg"
+		},
+		{
+			name: "TensorFlow",
+			image:
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/TensorFlowLogo.svg/2000px-TensorFlowLogo.svg.png"
+		}
+	];
+	techs.forEach(t => {
+		firestore()
+			.collection("technologies")
+			.add(t);
+	});
+};
 
 export const useTechnologies = () => {
 	const [technologies, setTechnologies] = useState<any[]>([]);
@@ -65,4 +124,23 @@ export const useTechnologies = () => {
 	}, []);
 
 	return { technologies };
+};
+
+export const useRatings = userId => {
+	const [ratings, setRatings] = useState<any[]>([]);
+
+	useEffect(() => {
+		return firestore()
+			.collection(`users/${userId}/ratings`)
+			.onSnapshot(({ docs }) => {
+				setRatings(
+					docs.map<string>(doc => {
+						const { techId } = doc.data();
+						return techId;
+					})
+				);
+			});
+	}, []);
+
+	return ratings;
 };
